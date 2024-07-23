@@ -58,10 +58,11 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const blob = values.profile_photo;
 
     const hasImageChanged = isBase64Image(blob);
+    console.log(hasImageChanged)
     if (hasImageChanged) {
       const imgRes = await startUpload(files);
 
-      if (imgRes && imgRes[0].fileUrl) {
+      if (imgRes && imgRes[0].url) {
         values.profile_photo = imgRes[0].fileUrl;
       }
     }
